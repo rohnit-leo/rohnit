@@ -1,262 +1,305 @@
-"use client"
-
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Badge } from "@/components/ui/badge"
-import { MessageCircle, Mail, Clock, Send } from "lucide-react"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Phone, Mail, MapPin, Clock, Send, MessageSquare } from "lucide-react"
+import Image from "next/image"
 
 export default function ContactPage() {
-  const handleWhatsAppContact = () => {
-    const message = "Hello, I would like to know more about Digital Solutions Pro and your products."
-    const whatsappUrl = `https://wa.me/919828056386?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, "_blank")
-  }
-
   return (
-    <div className="min-h-screen bg-gray-900 pt-20">
-      <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 mb-6">Get in Touch</Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Contact Digital Solutions Pro</h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Have questions about our products or need personalized recommendations? We're here to help you find the
-            perfect digital solution for your business.
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* Hero Section */}
+      <section className="py-20 px-4 md:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <Badge className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-2 mb-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            Get In Touch
+          </Badge>
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Let's Discuss Your
+            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              {" "}
+              IT Requirements
+            </span>
+          </h1>
+          <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+            Ready to transform your IT operations? Get in touch with our experts today for a free consultation and
+            discover how we can help streamline your technology needs.
           </p>
         </div>
+      </section>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-2xl font-bold text-white mb-6">Let's Connect</h2>
-              <p className="text-gray-400 mb-8">
-                Choose your preferred way to reach out to us. We're committed to providing quick and helpful responses
-                to all inquiries.
-              </p>
-            </div>
-
-            {/* Contact Methods */}
-            <div className="space-y-6">
-              <Card
-                className="bg-gray-800 border-gray-700 hover:border-green-500/50 transition-all duration-300 cursor-pointer"
-                onClick={handleWhatsAppContact}
-              >
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-green-500 rounded-full flex items-center justify-center">
-                      <MessageCircle className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-white">WhatsApp</CardTitle>
-                      <CardDescription className="text-gray-400">Instant messaging support</CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300 mb-3">Get immediate assistance via WhatsApp</p>
-                  <p className="text-green-400 font-semibold">+91 9828056386</p>
-                  <Button className="mt-4 bg-green-600 hover:bg-green-700 text-white" onClick={handleWhatsAppContact}>
-                    <MessageCircle className="w-4 h-4 mr-2" />
-                    Chat on WhatsApp
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-gray-800 border-gray-700 hover:border-blue-500/50 transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-500 rounded-full flex items-center justify-center">
-                      <Mail className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-white">Email</CardTitle>
-                      <CardDescription className="text-gray-400">For detailed inquiries</CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300 mb-3">Send us a detailed message</p>
-                  <p className="text-blue-400 font-semibold">ronitrathore6666@gmail.com</p>
-                  <Button
-                    className="mt-4 bg-blue-600 hover:bg-blue-700 text-white"
-                    onClick={() => (window.location.href = "mailto:ronitrathore6666@gmail.com")}
-                  >
-                    <Mail className="w-4 h-4 mr-2" />
-                    Send Email
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Business Hours */}
-            <Card className="bg-gray-800 border-gray-700">
+      {/* Contact Form & Info */}
+      <section className="py-20 px-4 md:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <Card className="border-slate-200 shadow-xl">
               <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-cyan-600 rounded-full flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-white">Business Hours</CardTitle>
-                    <CardDescription className="text-gray-400">When you can reach us</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-gray-300">Monday - Friday:</span>
-                  <span className="text-white">9:00 AM - 8:00 PM IST</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-300">Saturday:</span>
-                  <span className="text-white">10:00 AM - 6:00 PM IST</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-300">Sunday:</span>
-                  <span className="text-white">12:00 PM - 4:00 PM IST</span>
-                </div>
-                <div className="mt-4 p-3 bg-green-500/20 border border-green-500/30 rounded-lg">
-                  <p className="text-green-400 text-sm">
-                    <strong>WhatsApp Support:</strong> Available 24/7 for urgent inquiries
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Contact Form */}
-          <div>
-            <Card className="bg-gray-800 border-gray-700">
-              <CardHeader>
-                <CardTitle className="text-white text-2xl">Send us a Message</CardTitle>
-                <CardDescription className="text-gray-400">
-                  Fill out the form below and we'll get back to you as soon as possible.
-                </CardDescription>
+                <CardTitle className="text-2xl text-slate-900 flex items-center">
+                  <MessageSquare className="mr-3 h-6 w-6 text-blue-600" />
+                  Send Us a Message
+                </CardTitle>
+                <CardDescription>Fill out the form below and we'll get back to you within 24 hours</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">First Name *</label>
-                    <Input
-                      placeholder="Your first name"
-                      className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
-                    />
+                  <div className="space-y-2">
+                    <Label htmlFor="firstName">First Name *</Label>
+                    <Input id="firstName" placeholder="Enter your first name" />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Last Name *</label>
-                    <Input
-                      placeholder="Your last name"
-                      className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
-                    />
+                  <div className="space-y-2">
+                    <Label htmlFor="lastName">Last Name *</Label>
+                    <Input id="lastName" placeholder="Enter your last name" />
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Email Address *</label>
-                  <Input
-                    type="email"
-                    placeholder="your.email@example.com"
-                    className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
-                  />
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address *</Label>
+                  <Input id="email" type="email" placeholder="Enter your email address" />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
-                  <Input
-                    type="tel"
-                    placeholder="+1 (555) 123-4567"
-                    className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
-                  />
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone Number *</Label>
+                  <Input id="phone" type="tel" placeholder="Enter your phone number" />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Subject *</label>
-                  <Input
-                    placeholder="What can we help you with?"
-                    className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
-                  />
+                <div className="space-y-2">
+                  <Label htmlFor="company">Company Name</Label>
+                  <Input id="company" placeholder="Enter your company name" />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Message *</label>
-                  <Textarea
-                    placeholder="Tell us more about your inquiry..."
-                    rows={5}
-                    className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
-                  />
+                <div className="space-y-2">
+                  <Label htmlFor="service">Service Interest</Label>
+                  <Select>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a service" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="manpower">IT Manpower Outsourcing</SelectItem>
+                      <SelectItem value="support">Technical Support Services</SelectItem>
+                      <SelectItem value="network">Network & Infrastructure</SelectItem>
+                      <SelectItem value="cloud">Cloud & DevOps</SelectItem>
+                      <SelectItem value="consulting">IT Consulting</SelectItem>
+                      <SelectItem value="amc">Annual Maintenance Contract</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
-                <Button className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white py-3">
-                  <Send className="w-4 h-4 mr-2" />
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message *</Label>
+                  <Textarea id="message" placeholder="Tell us about your requirements..." className="min-h-[120px]" />
+                </div>
+
+                <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white">
+                  <Send className="mr-2 h-5 w-5" />
                   Send Message
                 </Button>
+              </CardContent>
+            </Card>
 
-                <p className="text-sm text-gray-400 text-center">* Required fields. We'll respond within 24 hours.</p>
+            {/* Contact Information */}
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl font-bold text-slate-900 mb-6">Get in Touch</h2>
+                <p className="text-lg text-slate-600 leading-relaxed mb-8">
+                  We're here to help you with all your IT needs. Reach out to us through any of the following channels,
+                  and our team will respond promptly.
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                <Card className="border-slate-200 hover:shadow-lg transition-shadow bg-gradient-to-br from-blue-50 to-white hover:scale-105 transition-transform duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Phone className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-slate-900 mb-2">Call Us</h3>
+                        <p className="text-slate-600 mb-1">+91 88025 16095</p>
+                        <p className="text-sm text-slate-500">Available 24/7 for emergency support</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-slate-200 hover:shadow-lg transition-shadow bg-gradient-to-br from-indigo-50 to-white hover:scale-105 transition-transform duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-indigo-600 to-purple-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Mail className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-slate-900 mb-2">Email Us</h3>
+                        <p className="text-slate-600 mb-1">infarisetechnology@gmail.com</p>
+                        <p className="text-sm text-slate-500">We'll respond within 24 hours</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-slate-200 hover:shadow-lg transition-shadow bg-gradient-to-br from-purple-50 to-white hover:scale-105 transition-transform duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <MapPin className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-slate-900 mb-2">Visit Our Office</h3>
+                        <p className="text-slate-600 mb-1">Plot No. 463, Badarpur</p>
+                        <p className="text-slate-600 mb-1">New Delhi – 110044</p>
+                        <p className="text-sm text-slate-500">Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-slate-200 hover:shadow-lg transition-shadow bg-gradient-to-br from-cyan-50 to-white hover:scale-105 transition-transform duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Clock className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-slate-900 mb-2">Business Hours</h3>
+                        <p className="text-slate-600 mb-1">Monday - Friday: 9:00 AM - 7:00 PM</p>
+                        <p className="text-slate-600 mb-1">Saturday: 9:00 AM - 5:00 PM</p>
+                        <p className="text-sm text-slate-500">Emergency support available 24/7</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 text-white">
+                <h3 className="text-xl font-bold mb-4">Need Immediate Assistance?</h3>
+                <p className="mb-6 text-blue-100">
+                  For urgent technical issues or emergency support, call us directly. Our support team is available 24/7
+                  to help resolve critical problems.
+                </p>
+                <Button variant="secondary" className="bg-white text-blue-700 hover:bg-blue-50">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Call Now: +91 88025 16095
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expert Team Section */}
+      <section className="py-20 px-4 md:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <Badge className="bg-gradient-to-r from-emerald-100 to-teal-100 text-emerald-700 px-4 py-2">
+                Expert Support Team
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Connect with Our Technology Experts</h2>
+              <p className="text-lg text-slate-600 leading-relaxed">
+                Our team of certified professionals is ready to understand your unique requirements and provide tailored
+                solutions that drive your business forward. From initial consultation to ongoing support, we're here to
+                ensure your success.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full"></div>
+                  <span className="text-slate-700">Free initial consultation</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"></div>
+                  <span className="text-slate-700">Customized solution recommendations</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full"></div>
+                  <span className="text-slate-700">Ongoing support and maintenance</span>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <Image
+                src="/images/business-meeting.jpg"
+                alt="Expert Support Team"
+                width={600}
+                height={500}
+                className="rounded-2xl shadow-2xl w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/10 to-teal-600/10 rounded-2xl"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 px-4 md:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
+            <p className="text-xl text-slate-600">Quick answers to common questions about our services</p>
+          </div>
+
+          <div className="space-y-6">
+            <Card className="border-slate-200 hover:shadow-lg transition-shadow hover:scale-105">
+              <CardHeader>
+                <CardTitle className="text-lg text-slate-900">
+                  How quickly can you respond to support requests?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-600">
+                  Our response times vary by service level: Basic plans receive response within 4-8 hours, Standard
+                  plans within 2-4 hours, and Premium plans within 2 hours for critical issues. Emergency support is
+                  available 24/7 for all plans.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-slate-200 hover:shadow-lg transition-shadow hover:scale-105">
+              <CardHeader>
+                <CardTitle className="text-lg text-slate-900">Do you provide on-site support?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-600">
+                  Yes, we provide on-site support for Standard and Premium AMC plans. For Basic plans, on-site support
+                  is available at additional charges. We cover the entire Delhi NCR region and can arrange support in
+                  other locations as needed.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-slate-200 hover:shadow-lg transition-shadow hover:scale-105">
+              <CardHeader>
+                <CardTitle className="text-lg text-slate-900">
+                  Can you customize AMC plans for specific requirements?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-600">
+                  We understand that every business has unique needs. We can customize our AMC plans to include specific
+                  services, response times, and coverage areas based on your requirements and budget.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-slate-200 hover:shadow-lg transition-shadow hover:scale-105">
+              <CardHeader>
+                <CardTitle className="text-lg text-slate-900">What industries do you serve?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-600">
+                  We serve a wide range of industries including SMEs, corporate offices, educational institutions,
+                  healthcare facilities, retail stores, manufacturing units, and more. Our team has experience across
+                  various sectors and can adapt to industry-specific requirements.
+                </p>
               </CardContent>
             </Card>
           </div>
         </div>
-
-        {/* FAQ Section */}
-        <div className="mt-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-            <p className="text-gray-400">Quick answers to common questions about our products and services</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card className="bg-gray-800 border-gray-700">
-              <CardHeader>
-                <CardTitle className="text-white">How do I purchase a product?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-400">
-                  Simply click "Buy Now" on any product page, and you'll be redirected to WhatsApp where our team will
-                  assist you with the purchase process and provide payment details.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gray-800 border-gray-700">
-              <CardHeader>
-                <CardTitle className="text-white">Do you offer refunds?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-400">
-                  Yes, we offer a 30-day money-back guarantee on all our products. If you're not satisfied, contact us
-                  within 30 days for a full refund.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gray-800 border-gray-700">
-              <CardHeader>
-                <CardTitle className="text-white">How quickly will I receive my product?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-400">
-                  Digital products are delivered instantly after payment confirmation. You'll receive download links and
-                  access credentials via email and WhatsApp.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gray-800 border-gray-700">
-              <CardHeader>
-                <CardTitle className="text-white">Do you provide technical support?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-400">
-                  We provide comprehensive technical support for all our products via WhatsApp and email. Our team is
-                  available 24/7 to help you with installation, setup, and troubleshooting.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   )
 }

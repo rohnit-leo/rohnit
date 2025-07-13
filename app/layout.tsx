@@ -2,35 +2,24 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import Header from "@/components/layout/header"
-import Footer from "@/components/layout/footer"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Digital Solutions Pro - Premium Digital Products & Software Solutions",
+  title: "Infarise Technology Pvt. Ltd. – Scalable IT Manpower & Tech Solutions",
   description:
-    "Discover premium digital products and software solutions for your business. From AI tools to automation software, transform your operations with Digital Solutions Pro.",
+    "Infarise Technology is a trusted IT manpower outsourcing and technical support provider helping businesses grow with reliable talent and expert tech services since 2020.",
   keywords:
-    "digital products, software solutions, AI tools, business automation, productivity software, digital marketing tools",
-  authors: [{ name: "Digital Solutions Pro" }],
-  creator: "Digital Solutions Pro",
-  publisher: "Digital Solutions Pro",
-  robots: "index, follow",
+    "IT services, manpower outsourcing, technical support, cloud solutions, DevOps, IT consulting, AMC, New Delhi",
+  authors: [{ name: "Infarise Technology Pvt. Ltd." }],
   openGraph: {
+    title: "Infarise Technology Pvt. Ltd. – Scalable IT Manpower & Tech Solutions",
+    description:
+      "Trusted IT manpower outsourcing and technical support provider helping businesses grow with reliable talent and expert tech services since 2020.",
     type: "website",
     locale: "en_US",
-    url: "https://digitalsolutionspro.com",
-    title: "Digital Solutions Pro - Premium Digital Products & Software Solutions",
-    description:
-      "Discover premium digital products and software solutions for your business. Transform your operations with our curated collection of AI tools, automation software, and productivity solutions.",
-    siteName: "Digital Solutions Pro",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Digital Solutions Pro - Premium Digital Products & Software Solutions",
-    description: "Discover premium digital products and software solutions for your business.",
-    creator: "@digitalsolutionspro",
   },
     generator: 'v0.dev'
 }
